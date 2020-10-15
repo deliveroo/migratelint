@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(File.expand_path("#{__dir__}/../lib"))
+
+# Check Ruby version.
+require "rubygems"
+version = File.read("#{__dir__}/../.ruby-version").chop
+unless Gem::Version.new(RUBY_VERSION) >= Gem::Version.new(version)
+  puts "\`migratelint\` requires a version of ruby >= #{version}."
+  exit 1
+end
+
+# Point Bundler to the right place.
+ENV['BUNDLE_GEMFILE'] = "#{__dir__}/../Gemfile"
+
+require "bundler"
+Bundler.setup
+
+require 'rubygems'
+require 'bundler/setup'
+require 'migratelint/cli'
+MigrateLint::CLI.start
