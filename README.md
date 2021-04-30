@@ -8,13 +8,12 @@ rules using [pg_query][pg_query].
 ## Example
 
 ```shell
-❯ docker run -v $(pwd)/testdata:/testdata jeffreylo/migratelint:0.1.0 check /testdata/*.sql
-/testdata/add_column_with_default_constraint.sql => New columns with defaults are unsafe.
-/testdata/add_column_with_not_null_constraint.sql => New columns with non-nullable constraints are unsafe.
+❯ docker run -v $(pwd)/testdata:/testdata deliveroo/migratelint:1.0.0 check /testdata/*.sql
 /testdata/add_column_with_unique_constraint.sql => New columns with unique constraints are unsafe.
 /testdata/add_multiple_columns_with_violation.sql => Type changes on existing columns are unsafe.
 /testdata/alter_existing_column_type.sql => Type changes on existing columns are unsafe.
 /testdata/create_index_without_concurrently.sql => Indexes must be created with CONCURRENTLY.
+/testdata/create_table_with_index.sql => Indexes must be created with CONCURRENTLY.
 ```
 
 [braintree-1]: https://www.braintreepayments.com/blog/safe-operations-for-high-volume-postgresql/
