@@ -3,8 +3,6 @@ module MigrateLint
     CHECKS = [
       ConcurrentIndexRule,
       NoExistingColumnAlterRule,
-      NoNewColumnWithNonNullableRule,
-      NoNewColumnWithDefaultRule,
       NoNewColumnWithUniqueConstraintRule,
       NoVacuumFullRule
     ]
